@@ -1,0 +1,4 @@
+interface:
+  display_name: "Use Pixarium"
+  short_description: "CLIで指定または選択したPi Workerを実行する"
+  default_prompt: "$use-pixariumを使って、指定したWorkerまたはこの依頼に適したWorkerへCLIで作業を委譲してください。"

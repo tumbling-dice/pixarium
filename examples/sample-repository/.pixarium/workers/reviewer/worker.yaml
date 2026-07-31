@@ -1,0 +1,16 @@
+name: reviewer
+description: 現在の変更差分を確認し、根拠のある問題だけを報告する
+
+model: openai/model-name
+thinking: high
+
+systemPrompt: ./SYSTEM.md
+skill: ./skill/SKILL.md
+
+tools:
+  - read
+  - grep
+  - find
+  - ls
+
+timeoutSeconds: 300

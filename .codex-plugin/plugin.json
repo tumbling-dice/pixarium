@@ -1,0 +1,20 @@
+{
+  "name": "pixarium",
+  "version": "0.1.0",
+  "description": "Delegate repository tasks to local and global Pixarium workers through Codex.",
+  "author": {
+    "name": "tumbling-dice",
+    "url": "https://github.com/tumbling-dice"
+  },
+  "repository": "https://github.com/tumbling-dice/pixarium",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Pixarium",
+    "shortDescription": "Delegate tasks to configured Pixarium workers.",
+    "longDescription": "Delegate repository tasks to Pixarium workers through the CLI, configure local and global workers, and migrate Codex custom agents into worker definitions. Requires the Pixarium npm package.",
+    "developerName": "tumbling-dice",
+    "category": "Developer Tools",
+    "capabilities": ["Execute"],
+    "defaultPrompt": ["Use Pixarium to delegate this repository task."]
+  }
+}

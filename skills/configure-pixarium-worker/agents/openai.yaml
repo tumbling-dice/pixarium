@@ -1,0 +1,4 @@
+interface:
+  display_name: "Configure Pixarium Worker"
+  short_description: "Workerのtool・command・継承設定を作成・更新する"
+  default_prompt: "$configure-pixarium-workerを使って、目的に合うPixarium Workerを設定してください。"

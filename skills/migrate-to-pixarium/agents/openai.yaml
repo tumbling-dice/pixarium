@@ -1,0 +1,4 @@
+interface:
+  display_name: "Migrate to Pixarium"
+  short_description: "local・globalのCodex agentをPixariumへ移行する"
+  default_prompt: "$migrate-to-pixariumを使って、指定したCodex custom agentと専用Skillを適切なscopeのPixarium Workerへ移行してください。"

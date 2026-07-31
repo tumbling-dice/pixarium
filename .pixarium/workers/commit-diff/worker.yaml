@@ -1,0 +1,16 @@
+name: commit-diff
+description: 現在のGit差分を確認し、指定された変更だけをstageして1件のcommitを作成する
+
+model: openai-codex/gpt-5.6-luna
+thinking: low
+
+systemPrompt: ./SYSTEM.md
+skill: ./skill/SKILL.md
+
+tools: []
+
+commands:
+  - name: git
+    description: 指定された差分だけを確認、stage、commitするためにGitを操作する
+    executable: git
+    arguments: passthrough

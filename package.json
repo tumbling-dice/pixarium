@@ -1,0 +1,53 @@
+{
+  "name": "pixarium",
+  "version": "0.1.0",
+  "description": "Run local and global Pi coding-agent workers from a CLI.",
+  "author": "tumbling-dice",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tumbling-dice/pixarium.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tumbling-dice/pixarium/issues"
+  },
+  "homepage": "https://github.com/tumbling-dice/pixarium#readme",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "pixarium": "./dist/cli.js"
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node scripts/clean-dist.mjs && tsc -p tsconfig.json && node scripts/set-bin-permissions.mjs",
+    "prepack": "npm run build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "test": "npm run build && node --test --test-isolation=none test/*.test.mjs",
+    "check": "npm run format:check && npm run lint && npm test"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "0.83.0",
+    "typebox": "1.3.7",
+    "yaml": "2.9.0",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.10.1",
+    "eslint": "10.8.0",
+    "globals": "17.8.0",
+    "prettier": "3.9.6",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.65.0"
+  }
+}
