@@ -1,6 +1,6 @@
 {
   "name": "pixarium",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run local and global Pi coding-agent workers from a CLI.",
   "author": "tumbling-dice",
   "license": "MIT",
