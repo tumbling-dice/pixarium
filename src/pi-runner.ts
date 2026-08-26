@@ -7,6 +7,7 @@ import { stripVTControlCharacters } from "node:util";
 import { PixariumError } from "./errors.js";
 import { COMMAND_TOOLS_CONFIG_ENV } from "./pi-command-extension.js";
 import { createPiRpcTransport } from "./pi-rpc-transport.js";
+import { resolvePackageCli } from "./package-cli.js";
 import { requireCredentialDirectoryOutsideProtectedRoots } from "./repository.js";
 import { startRunObserver, type RunObserver } from "./run-observer.js";
 import { normalizeCommandToolName, pixariumHome } from "./worker-loader.js";
@@ -47,36 +48,27 @@ function commandToolsExtensionPath(): string {
 
 /**
  * bundled Pi CLIの起動commandを解決する。
- * @returns Node.js経由の同梱CLI、またはテスト専用overrideの起動情報。
+ * @returns Node.js経由の直接依存CLI、またはテスト専用overrideの起動情報。
  */
 function bundledPiInvocation(): PiInvocation {
   if (process.env.PIXARIUM_PI_BIN) {
     const command = resolve(process.env.PIXARIUM_PI_BIN);
     return { command, prefixArgs: [], displayPath: command };
   }
-  const packageRoot = packageRootPath();
-  const cliPath = join(
-    packageRoot,
-    "node_modules",
-    "@earendil-works",
-    "pi-coding-agent",
-    "dist",
-    "cli.js",
-  );
+  const cliPath = resolvePackageCli("@earendil-works/pi-coding-agent");
   return { command: process.execPath, prefixArgs: [cliPath], displayPath: cliPath };
 }
 
 /**
  * bundled pi-ai認証CLIの起動commandを解決する。
- * @returns Node.js経由の同梱CLI、またはテスト専用overrideの起動情報。
+ * @returns Node.js経由の直接依存CLI、またはテスト専用overrideの起動情報。
  */
 function bundledPiAiInvocation(): PiInvocation {
   if (process.env.PIXARIUM_PI_AI_BIN) {
     const command = resolve(process.env.PIXARIUM_PI_AI_BIN);
     return { command, prefixArgs: [], displayPath: command };
   }
-  const packageRoot = packageRootPath();
-  const cliPath = join(packageRoot, "node_modules", "@earendil-works", "pi-ai", "dist", "cli.js");
+  const cliPath = resolvePackageCli("@earendil-works/pi-ai");
   return { command: process.execPath, prefixArgs: [cliPath], displayPath: cliPath };
 }
 

@@ -352,7 +352,7 @@ traceはOSの一時ディレクトリにある権限0700のrun directoryへ保�
 
 ## 認証情報をリポジトリの外へ置く
 
-Pixariumは、npmパッケージの`node_modules`にあるPiを使用します。グローバルにインストールされた`pi`または`pi-ai`へ実行を切り替えません。
+Pixariumは、npmがPixariumの直接依存としてインストールしたPiを使用します。npmが依存をPixarium package内または上位の`node_modules`へ配置した場合も、Node.jsのpackage解決に従います。独立してグローバルインストールされた`pi`または`pi-ai`へ実行を切り替えません。
 
 OpenAI APIキーを使う場合は、Pixariumを実行するプロセスの環境変数へ設定します。
 
